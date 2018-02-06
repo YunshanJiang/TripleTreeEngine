@@ -1,9 +1,9 @@
+#include "TripleTreeEngine.h"
 
-#include <SFML/Graphics.hpp>
-#include "Game.hpp"
 int main()
 {
-	Game game;
-	game.run();
+	TripleTreeEngine::Initialize();
+	TripleTreeEngine::Start();
+
 	return 0;
 }
