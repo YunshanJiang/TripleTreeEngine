@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{3527d73c-db21-416e-b43a-1d2aa146714e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\MainLoop">
+      <UniqueIdentifier>{75ce827b-f244-475b-8101-d4d793a115bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TripleTreeEngine.cpp">
@@ -27,6 +30,9 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Initialization.cpp">
+      <Filter>Source Files\MainLoop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp">
@@ -34,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="TripleTreeEngine.h">
       <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Initialization.hpp">
+      <Filter>Source Files\MainLoop</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
