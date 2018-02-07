@@ -1,0 +1,10 @@
+﻿D:\Visual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+D:\Visual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Main.cpp
+  TripleTreeEngine.cpp
+  Generating code
+  26 of 26 functions (100.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  TripleTreesEngine.vcxproj -> E:\Semester_6\TripleTreeEngine\Source\TripleTreesEngine\..\..\Game\TripleTreesEngine_Win32_Release\TripleTreesEngine_Win32.exe
