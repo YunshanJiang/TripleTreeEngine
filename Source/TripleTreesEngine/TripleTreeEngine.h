@@ -4,8 +4,16 @@
 class TripleTreeEngine
 {
 public:
-	static void Start();
-	static void Initialize();
+	TripleTreeEngine();
+	void Start();
+	void Initialize();
 private:
-	static sf::RenderWindow m_mainWindow;
+	void GameLogicLoop();
+
+	enum GameState {
+		Uninitialized, ShowingSplash, Paused,
+		ShowingMenu, Playing, Exiting
+	};
+	GameState m_gameState;
+	sf::RenderWindow m_mainWindow;
 };

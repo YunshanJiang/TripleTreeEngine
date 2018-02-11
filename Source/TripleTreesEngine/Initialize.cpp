@@ -83,3 +83,11 @@ bool Initialize::CheckCPUSpeed(int requiredInGHZ) {
 		return true;
 	}
 }
+
+void Initialize::InitGraphicSystem(sf::RenderWindow* window, int x, int y, string title) {
+	window->create(sf::VideoMode(x, y), title);
+}
+
+void Initialize::InitAudioSystem() {
+
+}
