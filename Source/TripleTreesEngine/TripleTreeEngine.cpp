@@ -41,7 +41,7 @@ void TripleTreeEngine::Initialize() {
 	}
 
 	//Initialize graphic system
-	Initialize::InitGraphicSystem(&m_mainWindow, 600, 400, "My Game");
+	Initialize::InitGraphicSystem(&m_mainWindow, 700, 500, "My Game");
 
 	//Initialize audio system
 	Initialize::InitAudioSystem();
@@ -70,17 +70,25 @@ void TripleTreeEngine::Start()
 }
 
 void TripleTreeEngine::GameLogicLoop() {
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
+	//sf::CircleShape shape(100.f);
+	//shape.setFillColor(sf::Color::Green);
+	
 	sf::Event event;
-	while (m_mainWindow.pollEvent(event))
+	while (m_gameState == ShowingSplash)
 	{
-		if (event.type == sf::Event::Closed)
-			m_gameState = Exiting;
+		m_splashScreen.Show(m_mainWindow);
+		while (m_mainWindow.pollEvent(event))
+		{
+			if(event.type == sf::Event::EventType::KeyPressed
+				|| event.type == sf::Event::EventType::MouseButtonPressed
+				|| event.type == sf::Event::EventType::Closed){
+				m_gameState = Exiting;
+			}
+		}
 	}
+	
 
-	m_mainWindow.clear();
-	m_mainWindow.draw(shape);
-	m_mainWindow.display();
+	//m_mainWindow.clear();
+	//m_mainWindow.draw(shape);
+	//m_mainWindow.display();
 }

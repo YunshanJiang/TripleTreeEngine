@@ -22,6 +22,12 @@
     <Filter Include="Header Files\Engine">
       <UniqueIdentifier>{6a8b03ec-a18e-40ef-a69e-7b8154b3ae46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Screen">
+      <UniqueIdentifier>{3a48c97b-2c69-4d07-ac25-41a7a82d1dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screen">
+      <UniqueIdentifier>{df71b6a4-ed91-48a9-9639-a583820c4bd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,6 +39,9 @@
     <ClCompile Include="Initialize.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="SplashScreen.cpp">
+      <Filter>Source Files\Screen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Initialize.h">
@@ -40,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="TripleTreeEngine.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreen.hpp">
+      <Filter>Header Files\Screen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
