@@ -70,25 +70,19 @@ void TripleTreeEngine::Start()
 }
 
 void TripleTreeEngine::GameLogicLoop() {
-	//sf::CircleShape shape(100.f);
-	//shape.setFillColor(sf::Color::Green);
-	
 	sf::Event event;
-	while (m_gameState == ShowingSplash)
+	while (m_mainWindow.pollEvent(event))
 	{
-		m_splashScreen.Show(m_mainWindow);
-		while (m_mainWindow.pollEvent(event))
-		{
-			if(event.type == sf::Event::EventType::KeyPressed
-				|| event.type == sf::Event::EventType::MouseButtonPressed
-				|| event.type == sf::Event::EventType::Closed){
-				m_gameState = Exiting;
-			}
+		if (event.type == sf::Event::EventType::KeyPressed
+			|| event.type == sf::Event::EventType::MouseButtonPressed
+			|| event.type == sf::Event::EventType::Closed) {
+			m_gameState = Exiting;
 		}
 	}
-	
 
-	//m_mainWindow.clear();
-	//m_mainWindow.draw(shape);
-	//m_mainWindow.display();
+	//Game logic start
+	if (m_gameState == ShowingSplash)
+	{
+		m_splashScreen.Show(m_mainWindow);
+	}
 }

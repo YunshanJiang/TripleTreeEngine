@@ -13,7 +13,4 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow) {
 		targetSize.y / sprite.getLocalBounds().height);
 	renderWindow.draw(sprite);
 	renderWindow.display();
-
-
-
 }

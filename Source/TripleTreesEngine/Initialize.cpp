@@ -60,7 +60,7 @@ bool Initialize::CheckOutputDevice() {
 }
 
 bool Initialize::CheckCPUSpeed(int requiredInGHZ) {
-		DWORD BufSize = sizeof(DWORD);
+	DWORD BufSize = sizeof(DWORD);
 	DWORD dwMHz = 0;
 	DWORD type = REG_DWORD;
 	HKEY hKey;
