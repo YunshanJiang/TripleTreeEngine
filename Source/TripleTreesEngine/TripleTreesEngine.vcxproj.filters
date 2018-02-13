@@ -42,6 +42,9 @@
     <ClCompile Include="SplashScreen.cpp">
       <Filter>Source Files\Screen</Filter>
     </ClCompile>
+    <ClCompile Include="GamObject.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Initialize.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="SplashScreen.hpp">
       <Filter>Header Files\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.hpp">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
