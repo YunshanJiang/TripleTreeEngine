@@ -4,7 +4,7 @@
 #include <list>
 #include <iterator>
 
-#include "GameObject.hpp"
+#include "GameObject.h"
 
 
 class GameObjectManager

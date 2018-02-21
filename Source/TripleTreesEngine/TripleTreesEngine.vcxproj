@@ -169,7 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h" />
-    <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Initialize.h" />
     <ClInclude Include="SplashScreen.hpp" />

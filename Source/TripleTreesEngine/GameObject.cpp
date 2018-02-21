@@ -27,7 +27,7 @@ void GameObject::Update(float msec) {
 }
 */
 
-#include "GameObject.hpp"
+#include "GameObject.h"
 
 void GameObject::Awake() {
 	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {

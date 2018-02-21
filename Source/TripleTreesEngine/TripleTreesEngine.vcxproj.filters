@@ -77,9 +77,6 @@
     <ClInclude Include="SplashScreen.hpp">
       <Filter>Header Files\Screen</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.hpp">
-      <Filter>Header Files\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjectManager.h">
       <Filter>Header Files\Actor</Filter>
     </ClInclude>
@@ -88,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Actor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

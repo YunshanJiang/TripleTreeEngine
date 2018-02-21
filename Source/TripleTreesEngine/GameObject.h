@@ -32,8 +32,8 @@ private:
 */
 
 
-#ifndef GameObject_hpp
-#define GameObject_hpp
+#ifndef GameObject_h
+#define GameObject_h
 
 #include <stdio.h>
 #include "BaseComponent.h"
