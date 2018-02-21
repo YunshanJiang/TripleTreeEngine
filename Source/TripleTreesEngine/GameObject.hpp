@@ -1,5 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <stdio.h>
+#include "BaseComponent.h"
+#include "Transform.h"
+#include <iostream>
+#include <list>
+#include <vector>
+#include <iterator>
+
 class GameObject {
 public:
 	GameObject() { parent = NULL; }

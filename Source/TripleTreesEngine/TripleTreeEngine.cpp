@@ -3,18 +3,24 @@
 
 TripleTreeEngine::TripleTreeEngine():
 m_mainWindow(),
-m_gameState(Uninitialized)
+m_gameState(Uninitialized),
+m_gameObjectManager()
 {
 	
 }
 
 void TripleTreeEngine::Initialize() {
-	//Check system
+	//Check is only instance;
 	if (!Initialize::CheckIsOnlyInstance("My Game")) {
 		cout << "Check instance : One instance has already running." << endl;
 		return;
 	}
 
+	//Initialize graphic system & show splash screen
+	Initialize::InitGraphicSystem(&m_mainWindow, 700, 500, "My Game");
+	m_splashScreen.Show(m_mainWindow);
+
+	//Check system
 	if (!Initialize::CheckHardDriveSpace(300*1024*1024)) {
 		cout << "CheckStorage failure : Not enough physical storage." << endl;
 		return;
@@ -40,9 +46,6 @@ void TripleTreeEngine::Initialize() {
 		return;
 	}
 
-	//Initialize graphic system
-	Initialize::InitGraphicSystem(&m_mainWindow, 700, 500, "My Game");
-
 	//Initialize audio system
 	Initialize::InitAudioSystem();
 
@@ -62,27 +65,23 @@ void TripleTreeEngine::Start()
 
 	while (m_gameState!=Exiting)
 	{
+		sf::Event event;
+		while (m_mainWindow.pollEvent(event))
+		{
+			if (event.type == sf::Event::EventType::KeyPressed
+				|| event.type == sf::Event::EventType::MouseButtonPressed
+				|| event.type == sf::Event::EventType::Closed) {
+				m_gameState = Exiting;
+			}
+		}
+
 		GameLogicLoop();
 	}
 
 	m_mainWindow.close();
-
 }
 
 void TripleTreeEngine::GameLogicLoop() {
-	sf::Event event;
-	while (m_mainWindow.pollEvent(event))
-	{
-		if (event.type == sf::Event::EventType::KeyPressed
-			|| event.type == sf::Event::EventType::MouseButtonPressed
-			|| event.type == sf::Event::EventType::Closed) {
-			m_gameState = Exiting;
-		}
-	}
-
-	//Game logic start
-	if (m_gameState == ShowingSplash)
-	{
-		m_splashScreen.Show(m_mainWindow);
-	}
+	m_gameObjectManager.Update(0);
+	m_gameObjectManager.LateUpdate(0);
 }
