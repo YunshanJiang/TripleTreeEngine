@@ -63,6 +63,8 @@ void TripleTreeEngine::Start()
 		return;
 	}
 
+	m_gameState = Playing;
+
 	while (m_gameState!=Exiting)
 	{
 		sf::Event event;

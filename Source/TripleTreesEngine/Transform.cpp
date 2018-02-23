@@ -8,8 +8,6 @@ void Transform::Awake() {
 	Model = Model.rotate(m_Rotation.y);
 	Model = Model.scale(m_Scale.x, m_Scale.y);
 	transformMatrix = Model;
-
-	
 }
 
 void Transform::Start() {
