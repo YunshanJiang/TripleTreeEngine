@@ -28,5 +28,7 @@ public:
 	Vector3 m_Rotation;
 	Vector3 m_Scale;
 
+
 	sf::Transform transformMatrix;
+	  
 };

@@ -68,3 +68,4 @@ void GameObject::AddComponent(BaseComponent* component)
 void GameObject::AddChild(GameObject* child) {
 	m_Children.push_back(child);
 }
+

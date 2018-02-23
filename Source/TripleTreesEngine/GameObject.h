@@ -38,6 +38,7 @@ private:
 #include <stdio.h>
 #include "BaseComponent.h"
 #include "Transform.h"
+#include "BaseMessage.hpp"
 #include <iostream>
 #include <list>
 #include <vector>
@@ -52,6 +53,7 @@ public:
 
 	void AddComponent(BaseComponent* component);
 
+
 	void SetParent(GameObject& parent) { m_Parent = &parent; }
 	void AddChild(GameObject* child);
 
@@ -62,6 +64,7 @@ public:
 
 public: // Members
 	Transform transform;    //local transform
+
 
 private: // Members
 	int m_UniqueID;
