@@ -9,11 +9,11 @@ m_gameObjectManager()
 	
 }
 
-void TripleTreeEngine::Initialize() {
+bool TripleTreeEngine::Initialize() {
 	//Check is only instance;
 	if (!Initialize::CheckIsOnlyInstance("My Game")) {
 		cout << "Check instance : One instance has already running." << endl;
-		return;
+		return false;
 	}
 
 	//Initialize graphic system & show splash screen
@@ -23,27 +23,27 @@ void TripleTreeEngine::Initialize() {
 	//Check system
 	if (!Initialize::CheckHardDriveSpace(300*1024*1024)) {
 		cout << "CheckStorage failure : Not enough physical storage." << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckRAM(500)) {
 		cout << "Check RAM failure, Not enough RAM" << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckInputDevice()) {
 		cout << "Check input device failure, No input device" << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckOutputDevice()) {
 		cout << "Check output device failure, No output device" << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckCPUSpeed(2000)) {
 		cout << "Check CPU speed failure, CPU speed too low" <<endl;
-		return;
+		return false;
 	}
 
 	//Initialize audio system
@@ -53,7 +53,8 @@ void TripleTreeEngine::Initialize() {
 	//Implement here
 
 	//Initialization success
-	m_gameState = ShowingSplash;
+	m_gameState = Initialized;
+	return true;
 }
 
 void TripleTreeEngine::Start()
@@ -84,6 +85,14 @@ void TripleTreeEngine::Start()
 }
 
 void TripleTreeEngine::GameLogicLoop() {
+	//check input
+	//update physics
+
 	m_gameObjectManager.Update(0);
+	
+	//update AI
 	m_gameObjectManager.LateUpdate(0);
+	
+	// render
+	// play audio
 }

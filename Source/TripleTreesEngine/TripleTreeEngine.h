@@ -8,12 +8,12 @@ class TripleTreeEngine
 public:
 	TripleTreeEngine();
 	void Start();
-	void Initialize();
+	bool Initialize();
 private:
 	void GameLogicLoop();
 
 	enum GameState {
-		 Uninitialized, ShowingSplash, Paused,
+		 Uninitialized, Initialized, Paused,
 		ShowingMenu, Playing, Exiting
 	};
 	GameState m_gameState;
