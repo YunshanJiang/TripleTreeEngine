@@ -7,6 +7,7 @@
 #include "BaseComponent.h"
 #include "Transform.h"
 #include "BaseMessage.hpp"
+#include "RenderComponent.hpp"
 #include <iostream>
 #include <list>
 #include <vector>
@@ -32,7 +33,7 @@ public:
 
 public: // Members
 	Transform transform;    //local transform
-
+	SpriteRenderComponent Sprite;
 
 private: // Members
 	int m_UniqueID;
@@ -41,6 +42,7 @@ private: // Members
 	std::vector<GameObject*> m_Children;
 
 	sf::Transform worldTransform;
+	
 	std::vector<BaseComponent*> m_Components;
 };
 #endif

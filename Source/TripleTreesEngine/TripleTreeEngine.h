@@ -2,6 +2,9 @@
 #include "SFML/Graphics.hpp"
 #include "SplashScreen.hpp"
 #include "GameObjectManager.h"
+#include "InGameScreen.hpp"
+
+
 
 class TripleTreeEngine
 {
@@ -21,4 +24,5 @@ private:
 	GameObjectManager m_gameObjectManager;
 	sf::RenderWindow m_mainWindow;
 	SplashScreen m_splashScreen;
+	InGameScreen m_ingameScreen;
 };

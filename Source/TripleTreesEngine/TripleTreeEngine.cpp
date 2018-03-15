@@ -64,21 +64,30 @@ void TripleTreeEngine::Start()
 		return;
 	}
 
-	m_gameState = Playing;
+	//m_gameState = Playing;
 
 	while (m_gameState!=Exiting)
 	{
 		sf::Event event;
 		while (m_mainWindow.pollEvent(event))
-		{
+		{   //leave the splash screen and enter to in game screen
 			if (event.type == sf::Event::EventType::KeyPressed
 				|| event.type == sf::Event::EventType::MouseButtonPressed
 				|| event.type == sf::Event::EventType::Closed) {
-				m_gameState = Exiting;
+				m_gameState = Playing;
+				m_ingameScreen.Show(m_mainWindow);
+				
+			
+				
 			}
 		}
-
-		GameLogicLoop();
+		//while playing
+		if (m_gameState == Playing)
+		{
+			
+			GameLogicLoop();
+		}
+		
 	}
 
 	m_mainWindow.close();
@@ -86,6 +95,7 @@ void TripleTreeEngine::Start()
 
 void TripleTreeEngine::GameLogicLoop() {
 	//check input
+
 	//update physics
 
 	m_gameObjectManager.Update(0);
