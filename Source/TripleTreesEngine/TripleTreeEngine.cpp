@@ -3,8 +3,7 @@
 
 TripleTreeEngine::TripleTreeEngine():
 m_mainWindow(),
-m_gameState(Uninitialized),
-m_gameObjectManager()
+m_gameState(Uninitialized)
 {
 	
 }
@@ -64,30 +63,28 @@ void TripleTreeEngine::Start()
 		return;
 	}
 
-	//m_gameState = Playing;
-
 	while (m_gameState!=Exiting)
 	{
 		sf::Event event;
 		while (m_mainWindow.pollEvent(event))
-		{   //leave the splash screen and enter to in game screen
+		{   
+			//Close
+			if (event.type == sf::Event::Closed) {
+				m_gameState = Exiting;
+			}
+			//leave the splash screen and enter to in game screen
 			if (event.type == sf::Event::EventType::KeyPressed
-				|| event.type == sf::Event::EventType::MouseButtonPressed
-				|| event.type == sf::Event::EventType::Closed) {
-				m_gameState = Playing;
-				m_ingameScreen.Show(m_mainWindow);
-				
-			
-				
+				|| event.type == sf::Event::EventType::MouseButtonPressed) {
+				m_screen = &m_gameScreen;
+				m_gameState = Running;
 			}
 		}
+
 		//while playing
-		if (m_gameState == Playing)
+		if (m_gameState == Running)
 		{
-			
 			GameLogicLoop();
 		}
-		
 	}
 
 	m_mainWindow.close();
@@ -98,11 +95,18 @@ void TripleTreeEngine::GameLogicLoop() {
 
 	//update physics
 
-	m_gameObjectManager.Update(0);
-	
+	//Update
+	m_screen->Update(0);
+	m_screen->m_gameObjectManager.Update(0);
+
 	//update AI
-	m_gameObjectManager.LateUpdate(0);
+
+	//Late update
+	m_screen->LateUpdate(0);
+	m_screen->m_gameObjectManager.LateUpdate(0);
 	
 	// render
+	m_screen->Render(m_mainWindow);
+
 	// play audio
 }

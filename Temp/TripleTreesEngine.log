@@ -1,4 +1,8 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-TripleTreeEngine.obj : error LNK2019: unresolved external symbol "public: void __thiscall SpriteRenderComponent::draw(class sf::RenderWindow &,class sf::Sprite)" (?draw@SpriteRenderComponent@@QAEXAAVRenderWindow@sf@@VSprite@3@@Z) referenced in function "public: void __thiscall TripleTreeEngine::Start(void)" (?Start@TripleTreeEngine@@QAEXXZ)
-..\..\Game\TripleTreesEngine_Win32_Debug\TripleTreesEngine_Win32.exe : fatal error LNK1120: 1 unresolved externals
+﻿D:\Visual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+D:\Visual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Main.cpp
+  Generating Code...
+  Compiling...
+  TripleTreeEngine.cpp
+  Generating Code...
+  TripleTreesEngine.vcxproj -> E:\Semester_6\TripleTreeEngine\Source\TripleTreesEngine\..\..\Game\TripleTreesEngine_Win32_Debug\TripleTreesEngine_Win32.exe

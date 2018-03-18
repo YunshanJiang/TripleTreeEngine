@@ -1,3 +1,7 @@
+#ifndef GameObjectManager_h
+#define GameObjectManager_h
+
+
 #include <stdio.h>
 #include "iostream"
 #include <map>
@@ -21,3 +25,5 @@ private:
 	std::map<int, GameObject*> m_Objects;
 	static int nextObjectID;
 };
+
+#endif
