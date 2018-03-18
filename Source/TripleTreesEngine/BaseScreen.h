@@ -14,7 +14,8 @@ public:
 	virtual void LateUpdate(float delta) {}
 	virtual void Render(sf::RenderWindow& window){}
 
-	GameObjectManager m_gameObjectManager;
+	GameObjectManager* m_gameObjectManager;
+	//TripleTreeEngine* m_engine;
 };
 
 #endif

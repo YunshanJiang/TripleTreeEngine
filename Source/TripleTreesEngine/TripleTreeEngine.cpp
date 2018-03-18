@@ -3,7 +3,8 @@
 
 TripleTreeEngine::TripleTreeEngine():
 m_mainWindow(),
-m_gameState(Uninitialized)
+m_gameState(Uninitialized),
+m_gameScreen(&m_gameObjectManager)
 {
 	
 }
@@ -97,13 +98,13 @@ void TripleTreeEngine::GameLogicLoop() {
 
 	//Update
 	m_screen->Update(0);
-	m_screen->m_gameObjectManager.Update(0);
+	m_gameObjectManager.Update(0);
 
 	//update AI
 
 	//Late update
 	m_screen->LateUpdate(0);
-	m_screen->m_gameObjectManager.LateUpdate(0);
+	m_gameObjectManager.LateUpdate(0);
 	
 	// render
 	m_screen->Render(m_mainWindow);

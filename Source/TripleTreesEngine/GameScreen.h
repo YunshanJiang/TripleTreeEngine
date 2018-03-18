@@ -8,7 +8,7 @@
 class GameScreen : public BaseScreen
 {
 public:
-	GameScreen();
+	GameScreen(GameObjectManager* gameObjManager);
 
 	void Awake();
 	void Start();

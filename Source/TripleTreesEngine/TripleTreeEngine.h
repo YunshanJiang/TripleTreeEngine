@@ -20,6 +20,7 @@ private:
 		Running, Exiting
 	};
 	GameState m_gameState;
+	GameObjectManager m_gameObjectManager;
 	sf::RenderWindow m_mainWindow;
 
 	BaseScreen* m_screen;
