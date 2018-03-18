@@ -6,16 +6,15 @@
 
 class SpriteRenderComponent : public BaseComponent {
 public:
+	SpriteRenderComponent(std::string path);
 
 	void Awake();
 	void Start();
 	void Update();
 	void LateUpdate();
 
+	void Render(sf::RenderWindow& window);
 	
 	sf::Texture texture;
 	sf::Sprite sprite;
-private:
-protected:
-
 };

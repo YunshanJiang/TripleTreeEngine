@@ -22,7 +22,6 @@ public:
 
 	void AddComponent(BaseComponent* component);
 
-
 	void SetParent(GameObject& parent) { m_Parent = &parent; }
 	void AddChild(GameObject* child);
 
@@ -31,9 +30,10 @@ public:
 	void Start();
 	void LateUpdate(float msec);
 
+	std::vector<BaseComponent*> m_Components;
+
 public: // Members
 	Transform transform;    //local transform
-	SpriteRenderComponent Sprite;
 
 private: // Members
 	int m_UniqueID;
@@ -42,7 +42,5 @@ private: // Members
 	std::vector<GameObject*> m_Children;
 
 	sf::Transform worldTransform;
-	
-	std::vector<BaseComponent*> m_Components;
 };
 #endif

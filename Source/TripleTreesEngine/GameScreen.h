@@ -8,6 +8,8 @@
 class GameScreen : public BaseScreen
 {
 public:
+	GameScreen();
+
 	void Awake();
 	void Start();
 	void Update(float delta);

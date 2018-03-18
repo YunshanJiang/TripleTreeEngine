@@ -20,10 +20,9 @@ private:
 		Running, Exiting
 	};
 	GameState m_gameState;
-
 	sf::RenderWindow m_mainWindow;
-	BaseScreen* m_screen;
 
+	BaseScreen* m_screen;
 	SplashScreen m_splashScreen;
 	GameScreen m_gameScreen;
 };
