@@ -22,6 +22,7 @@ private:
 	GameState m_gameState;
 	GameObjectManager m_gameObjectManager;
 	sf::RenderWindow m_mainWindow;
+	sf::Time runtime = sf::milliseconds(100);
 
 	BaseScreen* m_screen;
 	SplashScreen m_splashScreen;

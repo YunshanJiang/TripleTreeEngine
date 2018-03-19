@@ -15,15 +15,15 @@ void GameObjectManager::Start() {
 	}
 }
 
-void GameObjectManager::Update(float msec) {
+void GameObjectManager::Update(sf::Time time) {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
-		(i->second)->Update(msec);
+		(i->second)->Update(time);
 	}
 }
 
-void GameObjectManager::LateUpdate(float msec) {
+void GameObjectManager::LateUpdate(sf::Time time) {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
-		(i->second)->LateUpdate(msec);
+		(i->second)->LateUpdate(time);
 	}
 }
 

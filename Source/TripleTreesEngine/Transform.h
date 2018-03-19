@@ -17,16 +17,16 @@ public:
 
 class Transform : public BaseComponent {
 public:
-	Transform() : m_Position(), m_Rotation(), m_Scale(1, 1, 1) {}
+	Transform() : m_Position(), m_Rotation(), m_Scale(1, 1) {}
 
 	void Awake();
 	void Start();
 	void Update();
 	void LateUpdate();
-
-	Vector3 m_Position;
-	Vector3 m_Rotation;
-	Vector3 m_Scale;
+	
+	sf::Vector2f m_Position;
+	float m_Rotation;
+	sf::Vector2f m_Scale;
 
 
 	sf::Transform transformMatrix;

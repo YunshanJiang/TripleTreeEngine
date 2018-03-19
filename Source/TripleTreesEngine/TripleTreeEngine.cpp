@@ -97,14 +97,14 @@ void TripleTreeEngine::GameLogicLoop() {
 	//update physics
 
 	//Update
-	m_screen->Update(0);
-	m_gameObjectManager.Update(0);
+	m_screen->Update(runtime);
+	m_gameObjectManager.Update(runtime);
 
 	//update AI
 
 	//Late update
-	m_screen->LateUpdate(0);
-	m_gameObjectManager.LateUpdate(0);
+	m_screen->LateUpdate(runtime);
+	m_gameObjectManager.LateUpdate(runtime);
 	
 	// render
 	m_screen->Render(m_mainWindow);

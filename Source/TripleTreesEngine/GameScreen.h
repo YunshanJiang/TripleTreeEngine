@@ -12,9 +12,14 @@ public:
 
 	void Awake();
 	void Start();
-	void Update(float delta);
-	void LateUpdate(float delta);
+	void Update(sf::Time time);
+	void LateUpdate(sf::Time time);
 	void Render(sf::RenderWindow& window);
+private:
+	GameObject* obj;
+	GameObject* followobj;
+	GameObject* followobjs;
+	float a;
 };
 
 #endif

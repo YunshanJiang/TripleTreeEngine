@@ -10,8 +10,8 @@ class BaseScreen {
 public:
 	virtual void Awake() {}
 	virtual void Start() {}
-	virtual void Update(float delta) {}
-	virtual void LateUpdate(float delta) {}
+	virtual void Update(sf::Time time) {}
+	virtual void LateUpdate(sf::Time time) {}
 	virtual void Render(sf::RenderWindow& window){}
 
 	GameObjectManager* m_gameObjectManager;

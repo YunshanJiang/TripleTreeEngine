@@ -75,6 +75,15 @@
     <ClCompile Include="GameScreen.cpp">
       <Filter>Source Files\Screen</Filter>
     </ClCompile>
+    <ClCompile Include="KeyBinding.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsRBody.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Initialize.h">
@@ -109,6 +118,15 @@
     </ClInclude>
     <ClInclude Include="GameScreen.h">
       <Filter>Header Files\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBinding.hpp">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsRBody.hpp">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine.hpp">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

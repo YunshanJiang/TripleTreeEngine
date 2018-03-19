@@ -16,10 +16,10 @@ class GameObjectManager
 public:
 	GameObject* CreateObject();
 
-	void Update(float msec);
+	void Update(sf::Time time);
 	void Awake();
 	void Start();
-	void LateUpdate(float msec);
+	void LateUpdate(sf::Time time);
 
 	std::map<int, GameObject*> m_Objects;
 
