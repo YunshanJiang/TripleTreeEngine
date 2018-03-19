@@ -5,13 +5,7 @@ GameScreen::GameScreen(GameObjectManager* gameObjectManager)
 {
 	m_gameObjectManager = gameObjectManager;
 
-	//Create background object
-	GameObject* bg = m_gameObjectManager->CreateObject();
-	SpriteRenderComponent* bgSpriteRenderer = new SpriteRenderComponent("../../Assets/background.jpg");
-	bgSpriteRenderer->sprite.setScale(700 / bgSpriteRenderer->sprite.getLocalBounds().width,
-		500 / bgSpriteRenderer->sprite.getLocalBounds().height);
-	bg->AddComponent(bgSpriteRenderer);
-
+	/**
 	//Create doodle object
 	 obj = m_gameObjectManager->CreateObject();
 	obj->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
@@ -21,12 +15,25 @@ GameScreen::GameScreen(GameObjectManager* gameObjectManager)
 	followobjs = m_gameObjectManager->CreateObject();
 	followobjs->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
 	followobj->AddChild(followobjs);
+	*/
 }
+
 
 void GameScreen::Awake() {
-	
+	//Create background object
+	GameObject* bg = m_gameObjectManager->CreateObject();
+	SpriteRenderComponent* bgSpriteRenderer = new SpriteRenderComponent("../../Assets/background.jpg");
+	bgSpriteRenderer->sprite.setScale(700 / bgSpriteRenderer->sprite.getLocalBounds().width,
+		500 / bgSpriteRenderer->sprite.getLocalBounds().height);
+	bg->AddComponent(bgSpriteRenderer);
+
+	//Create doodle
+	GameObject* obj = m_gameObjectManager->CreateObject();
+	obj->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
+	obj->transform.m_Scale.x = 2;
 }
 
+/*
 void GameScreen::Start() {
 
 }
@@ -61,3 +68,4 @@ void GameScreen::Render(sf::RenderWindow& window) {
 	}
 	window.display();
 }
+*/

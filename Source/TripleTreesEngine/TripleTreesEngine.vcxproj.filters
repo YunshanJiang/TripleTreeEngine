@@ -60,23 +60,14 @@
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Source Files\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="BaseComponent.cpp">
-      <Filter>Source Files\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseMessage.cpp">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="RenderComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="GameScreen.cpp">
       <Filter>Source Files\Screen</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyBinding.cpp">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsRBody.cpp">
       <Filter>Source Files\Component</Filter>
@@ -107,9 +98,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="BaseMessage.hpp">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="RenderComponent.hpp">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -118,9 +106,6 @@
     </ClInclude>
     <ClInclude Include="GameScreen.h">
       <Filter>Header Files\Screen</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyBinding.hpp">
-      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsRBody.hpp">
       <Filter>Header Files\Component</Filter>

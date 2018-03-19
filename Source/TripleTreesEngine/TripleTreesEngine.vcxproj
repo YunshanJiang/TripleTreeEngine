@@ -158,12 +158,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaseComponent.cpp" />
-    <ClCompile Include="BaseMessage.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="Initialize.cpp" />
-    <ClCompile Include="KeyBinding.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PhysicsEngine.cpp" />
     <ClCompile Include="PhysicsRBody.cpp" />
@@ -175,12 +172,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseComponent.h" />
-    <ClInclude Include="BaseMessage.hpp" />
     <ClInclude Include="BaseScreen.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Initialize.h" />
-    <ClInclude Include="KeyBinding.hpp" />
     <ClInclude Include="PhysicsEngine.hpp" />
     <ClInclude Include="PhysicsRBody.hpp" />
     <ClInclude Include="RenderComponent.hpp" />

@@ -14,17 +14,21 @@ public:
 
 private:
 	void GameLogicLoop();
+	void Render();
+	void LoadScreen(BaseScreen* screen);
 
 	enum GameState {
 		Uninitialized, Initialized, Paused,
 		Running, Exiting
 	};
 	GameState m_gameState;
+
 	GameObjectManager m_gameObjectManager;
-	sf::RenderWindow m_mainWindow;
 	sf::Time runtime = sf::milliseconds(100);
 
+	sf::RenderWindow m_mainWindow;
 	BaseScreen* m_screen;
+
 	SplashScreen m_splashScreen;
 	GameScreen m_gameScreen;
 };
