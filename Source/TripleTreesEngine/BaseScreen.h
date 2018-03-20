@@ -1,9 +1,8 @@
 #pragma once
 #ifndef BaseScreen_h
 #define BaseScreen_h
-
 #include "GameObjectManager.h"
-#include "PhysicsEngine.hpp"
+#include "PhysicsEngine.h"
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 
@@ -15,5 +14,4 @@ public:
 	GameObjectManager* m_gameObjectManager;
 	PhysicsEngine* m_physicsEngine;
 };
-
 #endif

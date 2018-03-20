@@ -1,6 +1,5 @@
 #include "GameScreen.h"
 #include <iostream>
-#include "PhysicsRBody.hpp"
 
 GameScreen::GameScreen(GameObjectManager* gameObjectManager, PhysicsEngine* physicsEngine)
 {
@@ -19,9 +18,17 @@ void GameScreen::Awake() {
 	//Create doodle
 	GameObject* obj = m_gameObjectManager->CreateObject();
 	obj->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
-	PhysicsRBody* obj_Rb = new PhysicsRBody(obj,m_physicsEngine);
-	obj->AddComponent(obj_Rb);
+
+
+	RigidbodyComponent* aa = new RigidbodyComponent(obj,m_physicsEngine);
+	obj->AddComponent(aa);
 	
+
+
+
+
+
+
 	/*
 	GameObject* child = m_gameObjectManager->CreateObject();
 	child->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));

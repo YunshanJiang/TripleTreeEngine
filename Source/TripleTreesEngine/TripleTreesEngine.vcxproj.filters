@@ -69,11 +69,11 @@
     <ClCompile Include="GameScreen.cpp">
       <Filter>Source Files\Screen</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsRBody.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicsEngine.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidbodyComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,11 +107,11 @@
     <ClInclude Include="GameScreen.h">
       <Filter>Header Files\Screen</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsRBody.hpp">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsEngine.hpp">
+    <ClInclude Include="PhysicsEngine.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyComponent.h">
+      <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

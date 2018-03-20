@@ -1,5 +1,5 @@
 #include "TripleTreeEngine.h"
-#include "Initialize.h"
+
 
 TripleTreeEngine::TripleTreeEngine():
 m_mainWindow(),
@@ -52,7 +52,7 @@ bool TripleTreeEngine::Initialize() {
 	m_gameObjectManager = new GameObjectManager();
 
 	//Initialize all screens
-	m_gameScreen = new GameScreen(m_gameObjectManager,m_physicsEngine);
+	m_gameScreen = new GameScreen(m_gameObjectManager, m_physicsEngine);
 
 	//Initialize audio system
 	Initialize::InitAudioSystem();

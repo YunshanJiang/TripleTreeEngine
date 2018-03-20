@@ -1,8 +1,10 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "SplashScreen.hpp"
-#include "PhysicsEngine.hpp"
+#include "Initialize.h"
 #include "GameObjectManager.h"
+#include "PhysicsEngine.h"
+#include "RigidbodyComponent.h"
 #include "GameScreen.h"
 #include "BaseScreen.h"
 
