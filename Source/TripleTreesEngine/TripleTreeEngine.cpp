@@ -3,8 +3,7 @@
 
 TripleTreeEngine::TripleTreeEngine():
 m_mainWindow(),
-m_gameState(Uninitialized),
-m_gameScreen(&m_gameObjectManager)
+m_gameState(Uninitialized)
 {
 	
 }
@@ -46,11 +45,17 @@ bool TripleTreeEngine::Initialize() {
 		return false;
 	}
 
+	//Initalize physics engine
+	m_physicsEngine = new PhysicsEngine();
+
+	//Initialize gameobject manager
+	m_gameObjectManager = new GameObjectManager();
+
+	//Initialize all screens
+	m_gameScreen = new GameScreen(m_gameObjectManager,m_physicsEngine);
+
 	//Initialize audio system
 	Initialize::InitAudioSystem();
-
-	//Initalize other...
-	//Implement here
 
 	//Initialization success
 	m_gameState = Initialized;
@@ -78,7 +83,7 @@ void TripleTreeEngine::Start()
 			if (event.type == sf::Event::EventType::KeyPressed
 				|| event.type == sf::Event::EventType::MouseButtonPressed) {
 				//Load screen
-				LoadScreen(&m_gameScreen);
+				LoadScreen(m_gameScreen);
 				m_gameState = Running;
 			}
 		}
@@ -97,14 +102,15 @@ void TripleTreeEngine::GameLogicLoop() {
 	//check input
 
 	//update physics
+	m_physicsEngine->UpdatePhysics(runtime);
 
 	//Update
-	m_gameObjectManager.Update(runtime);
+	m_gameObjectManager->Update(runtime);
 
 	//update AI
 
 	//Late update
-	m_gameObjectManager.LateUpdate(runtime);
+	m_gameObjectManager->LateUpdate(runtime);
 	
 	// render
 	Render();
@@ -114,7 +120,7 @@ void TripleTreeEngine::GameLogicLoop() {
 
 void TripleTreeEngine::Render() {
 	m_mainWindow.clear();
-	for (std::map<int, GameObject*>::iterator i = m_gameObjectManager.m_Objects.begin(); i != m_gameObjectManager.m_Objects.end(); ++i) {
+	for (std::map<int, GameObject*>::iterator i = m_gameObjectManager->m_Objects.begin(); i != m_gameObjectManager->m_Objects.end(); ++i) {
 		for (std::vector<BaseComponent*>::iterator j = (i->second)->m_Components.begin(); j != (i->second)->m_Components.end(); ++j) {
 			if (SpriteRenderComponent* r = dynamic_cast<SpriteRenderComponent*>((*j))) {
 				r->Render(m_mainWindow, i->second);
@@ -125,6 +131,6 @@ void TripleTreeEngine::Render() {
 }
 
 void TripleTreeEngine::LoadScreen(BaseScreen* screen) {
-	m_gameObjectManager.m_Objects.clear();
+	m_gameObjectManager->m_Objects.clear();
 	screen->Awake();
 }

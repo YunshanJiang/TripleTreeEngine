@@ -10,8 +10,8 @@
 #include <vector>
 #include <map>
 class PhysicsRBody;
+
 class PhysicsEngine {
-	
 
 public:
 	struct CollisionPair
@@ -21,7 +21,6 @@ public:
 		PhysicsRBody* rigidBodyB;
 	};
 
-public:
 	struct CollisionInfo
 	{
 	public:
@@ -40,8 +39,8 @@ public:
 	void IntegrateBodies(sf::Time time);
 
 
-	void UpdatePhysics();
-	void FixedUpdate();
+	void UpdatePhysics(sf::Time time);
+	void FixedUpdate(sf::Time time);
 private:
 	std::map<CollisionPair, CollisionInfo> collisions;
 	

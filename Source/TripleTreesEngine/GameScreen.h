@@ -8,7 +8,7 @@
 class GameScreen : public BaseScreen
 {
 public:
-	GameScreen(GameObjectManager* gameObjManager);
+	GameScreen(GameObjectManager* gameObjManager, PhysicsEngine* physicsEngine);
 	void Awake();
 };
 

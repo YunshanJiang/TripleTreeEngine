@@ -1,6 +1,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include "SplashScreen.hpp"
+#include "PhysicsEngine.hpp"
 #include "GameObjectManager.h"
 #include "GameScreen.h"
 #include "BaseScreen.h"
@@ -22,13 +23,13 @@ private:
 		Running, Exiting
 	};
 	GameState m_gameState;
-
-	GameObjectManager m_gameObjectManager;
 	sf::Time runtime = sf::milliseconds(100);
 
 	sf::RenderWindow m_mainWindow;
-	BaseScreen* m_screen;
+	PhysicsEngine* m_physicsEngine;
+	GameObjectManager* m_gameObjectManager;
+
 
 	SplashScreen m_splashScreen;
-	GameScreen m_gameScreen;
+	GameScreen* m_gameScreen;
 };

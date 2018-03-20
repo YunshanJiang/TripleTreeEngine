@@ -5,7 +5,6 @@ void Transform::Awake() {
 	Model = Model.Identity;
 	Model = Model.translate(m_Position.x, m_Position.y);
 	Model = Model.rotate(m_Rotation);
-	
 	Model = Model.scale(m_Scale.x, m_Scale.y);
 	transformMatrix = Model;
 }
@@ -19,7 +18,6 @@ void Transform::Update() {
 	Model = Model.Identity;
 	Model = Model.translate(m_Position.x, m_Position.y);
 	Model = Model.rotate(m_Rotation);
-	
 	Model = Model.scale(m_Scale.x, m_Scale.y);
 	transformMatrix = Model;
 }

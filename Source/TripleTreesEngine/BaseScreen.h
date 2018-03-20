@@ -3,6 +3,7 @@
 #define BaseScreen_h
 
 #include "GameObjectManager.h"
+#include "PhysicsEngine.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 
@@ -11,14 +12,8 @@ public:
 
 	virtual void Awake() {}
 
-	/*
-	virtual void Start() {}
-	virtual void Update(sf::Time time) {}
-	virtual void LateUpdate(sf::Time time) {}
-	virtual void Render(sf::RenderWindow& window){}
-	*/
-
 	GameObjectManager* m_gameObjectManager;
+	PhysicsEngine* m_physicsEngine;
 };
 
 #endif
