@@ -26,8 +26,8 @@ public:
 	struct AABB
 	{
 	public:
-		sf::Vector2f bLeft;
-		sf::Vector2f tRight;
+		sf::Vector2f tLeft;
+		sf::Vector2f bRight;
 	};
 	AABB aabb;
 

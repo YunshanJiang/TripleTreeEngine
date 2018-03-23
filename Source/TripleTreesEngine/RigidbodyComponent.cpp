@@ -4,7 +4,7 @@ RigidbodyComponent::RigidbodyComponent(GameObject* gameObject, PhysicsEngine* ph
 {
 	m_gameObject = gameObject;
 	m_physicsEngine = physicsEngine;
-
+	SetAABB();
 	physicsEngine->AddRigidBody(this);
 }
 
@@ -39,16 +39,21 @@ bool RigidbodyComponent::IsGrounded()
 
 void RigidbodyComponent::SetAABB()
 {
-	//Bounds bound = new Bounds(new Vector2(0, 0), new Vector2(1, 1));
-	//Renderer renderer = GetComponent<Renderer>();
+	float width = 1;
+	float height = 1;
 
-	//if (renderer)
-	//{
-	//	bound = renderer.bounds;
-	//}
+	for (std::vector<BaseComponent*>::iterator j = m_gameObject->m_Components.begin(); j != m_gameObject->m_Components.end(); ++j) {
+		if (SpriteRenderComponent* r = dynamic_cast<SpriteRenderComponent*>((*j))) {
+			width = r->texture.getSize().x * m_gameObject->transform.m_Scale.x;
+			height = r->texture.getSize().y * m_gameObject->transform.m_Scale.y;
+		}
+	}
 
-	//.bLeft = new Vector2(bound.center.x - bound.extents.x, bound.center.y - bound.extents.y);
-	//aabb.tRight = new Vector2(bound.center.x + bound.extents.x, bound.center.y + bound.extents.y);
+	aabb.tLeft = m_gameObject->transform.m_Position;
+	aabb.bRight = m_gameObject->transform.m_Position + sf::Vector2f(width, height);
+
+	//std::cout << "Top left x: " << aabb.tLeft.x << " y: " << aabb.tLeft.y << std::endl;
+	//std::cout << "bot right x: " << aabb.bRight.x << " y: " << aabb.bRight.y << std::endl;
 }
 
 void  RigidbodyComponent::Integrate(sf::Time time) {
@@ -65,12 +70,12 @@ void  RigidbodyComponent::Integrate(sf::Time time) {
 	if (mass == 0) {
 		acceleration = sf::Vector2f();
 	}
-	currentVelocity += acceleration*0.001f; //* time.asSeconds();
+	currentVelocity += acceleration * time.asSeconds();
 
 	sf::Vector2f temp = m_gameObject->transform.m_Position;
-	temp -= currentVelocity * 0.001f; //* time.asSeconds();
+	temp -= currentVelocity * time.asSeconds();
 	m_gameObject->transform.m_Position = temp;
-	std::cout << m_gameObject->transform.m_Position.y << std::endl;
+	//std::cout << m_gameObject->transform.m_Position.y << std::endl;
 
 	SetAABB();
 

@@ -10,18 +10,31 @@ GameScreen::GameScreen(GameObjectManager* gameObjectManager, PhysicsEngine* phys
 void GameScreen::Awake() {
 	//Create background object
 	GameObject* bg = m_gameObjectManager->CreateObject();
-	SpriteRenderComponent* bgSpriteRenderer = new SpriteRenderComponent("../../Assets/background.jpg");
+	SpriteRenderComponent* bgSpriteRenderer = new SpriteRenderComponent("../../Assets/Background_2.png");
 	bgSpriteRenderer->sprite.setScale(700 / bgSpriteRenderer->sprite.getLocalBounds().width,
 		500 / bgSpriteRenderer->sprite.getLocalBounds().height);
 	bg->AddComponent(bgSpriteRenderer);
+	
 
 	//Create doodle
-	GameObject* obj = m_gameObjectManager->CreateObject();
-	obj->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
+	GameObject* doodle = m_gameObjectManager->CreateObject();
+	doodle->transform.m_Position.x += 300;
+	doodle->transform.m_Position.y += 100;
 
+	doodle->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
+	RigidbodyComponent* doodle_rb = new RigidbodyComponent(doodle,m_physicsEngine);
+	doodle->AddComponent(doodle_rb);
 
-	RigidbodyComponent* aa = new RigidbodyComponent(obj,m_physicsEngine);
-	obj->AddComponent(aa);
+	//Create platform
+	GameObject* platform = m_gameObjectManager->CreateObject();
+	platform->transform.m_Position.x += 250;
+	platform->transform.m_Position.y += 400;
+	platform->transform.m_Scale = sf::Vector2f(0.2f, 0.2f);
+
+	platform->AddComponent(new SpriteRenderComponent("../../Assets/Platform.png"));
+	RigidbodyComponent* platform_rb = new RigidbodyComponent(platform, m_physicsEngine);
+	platform_rb->obeysGravity = false;
+	platform->AddComponent(platform_rb);
 	
 
 
