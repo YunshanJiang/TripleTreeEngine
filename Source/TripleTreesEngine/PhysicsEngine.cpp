@@ -61,11 +61,11 @@ void PhysicsEngine::CheckCollisions()
 					}
 					else {
 						if (distance.y > 0) {
-							info.collisionNormal = sf::Vector2f(0.0f, 1.0f);
+							info.collisionNormal = sf::Vector2f(0.0f, -1.0f);
 						}
 						else
 						{
-							info.collisionNormal = sf::Vector2f(0.0f, -.0f);
+							info.collisionNormal = sf::Vector2f(0.0f, 1.0f);
 						}
 						info.penetration = gap.y;
 					}
