@@ -31,6 +31,7 @@ public:
 	};
 	AABB aabb;
 
+	GameObject* m_gameObject;
 	sf::Vector2f gravity = sf::Vector2f(0, -9.8f);          // The gravity vector applied to this body
 	float mass = 1.0f;                                      // Mass of the RigidBody
 	float bounciness = 1;                                   // The bounciness factor (value between 0 and 1, 0 being no bounce, and 1 being super bouncy!)
@@ -41,7 +42,6 @@ public:
 
 private:
 	PhysicsEngine* m_physicsEngine;
-	GameObject* m_gameObject;
 	sf::Vector2f totalForces;
 };
 #endif // !RigidbodyComponent

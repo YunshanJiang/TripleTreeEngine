@@ -12,12 +12,20 @@ public:
 	{
 		RigidbodyComponent* rb_A;
 		RigidbodyComponent* rb_B;
+
+		bool operator<(const CollisionPair& other) const {
+			return false;
+		}
 	};
 
 	struct CollisionInfo
 	{
 		sf::Vector2f collisionNormal;
 		float penetration;
+
+		bool operator<(const CollisionInfo& other) const {
+			return false;
+		}
 	};
 
 	void UpdatePhysics(sf::Time time);

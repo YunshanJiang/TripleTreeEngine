@@ -70,10 +70,10 @@ void  RigidbodyComponent::Integrate(sf::Time time) {
 	if (mass == 0) {
 		acceleration = sf::Vector2f();
 	}
-	currentVelocity += acceleration * time.asSeconds();
+	currentVelocity += acceleration * 0.0003f; //* time.asSeconds();
 
 	sf::Vector2f temp = m_gameObject->transform.m_Position;
-	temp -= currentVelocity * time.asSeconds();
+	temp -= currentVelocity * 0.003f; //* time.asSeconds();
 	m_gameObject->transform.m_Position = temp;
 	//std::cout << m_gameObject->transform.m_Position.y << std::endl;
 
