@@ -7,6 +7,8 @@
 #include "RigidbodyComponent.h"
 #include "GameScreen.h"
 #include "BaseScreen.h"
+#include "KeyInput.hpp"
+#include "GameTag.h"
 
 class TripleTreeEngine
 {
@@ -20,17 +22,14 @@ private:
 	void Render();
 	void LoadScreen(BaseScreen* screen);
 
-	enum GameState {
-		Uninitialized, Initialized, Paused,
-		Running, Exiting
-	};
+
 	GameState m_gameState;
 	sf::Time runtime = sf::milliseconds(100);
 
 	sf::RenderWindow m_mainWindow;
 	PhysicsEngine* m_physicsEngine;
 	GameObjectManager* m_gameObjectManager;
-
+	CheckInput* m_Input;
 
 	SplashScreen m_splashScreen;
 	GameScreen* m_gameScreen;

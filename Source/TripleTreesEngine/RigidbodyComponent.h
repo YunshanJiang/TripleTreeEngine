@@ -34,7 +34,7 @@ public:
 	GameObject* m_gameObject;
 	sf::Vector2f gravity = sf::Vector2f(0, -9.8f);          // The gravity vector applied to this body
 	float mass = 1.0f;                                      // Mass of the RigidBody
-	float bounciness = 1;                                   // The bounciness factor (value between 0 and 1, 0 being no bounce, and 1 being super bouncy!)
+	float bounciness = 0.2f;                                   // The bounciness factor (value between 0 and 1, 0 being no bounce, and 1 being super bouncy!)
 	bool obeysGravity = true;                               // Whether or not this body obeys gravity
 	bool grounded;
 	sf::Vector2f currentVelocity;                           // The current velocity the body is moving at

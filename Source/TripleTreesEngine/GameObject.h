@@ -7,6 +7,7 @@
 #include "BaseComponent.h"
 #include "Transform.h"
 #include "RenderComponent.hpp"
+#include "GameTag.h"
 #include <iostream>
 #include <list>
 #include <vector>
@@ -33,13 +34,14 @@ public:
 
 public: // Members
 	Transform transform;    //local transform
-
+	sf::Transform worldTransform;
+	GameTag Tag = GameTag::Defalut;
 protected: // Members
 	int m_UniqueID;
 
 	GameObject* m_Parent;
 	std::vector<GameObject*> m_Children;
 
-	sf::Transform worldTransform;
+	
 };
 #endif

@@ -57,10 +57,12 @@ void RigidbodyComponent::SetAABB()
 }
 
 void  RigidbodyComponent::Integrate(sf::Time time) {
+	
 	if (obeysGravity && !IsGrounded()) {
 		AddForce(gravity);
 	}
 	else {
+
 		if (abs(currentVelocity.y) < 0.05f) {
 			currentVelocity.y = 0;
 		}

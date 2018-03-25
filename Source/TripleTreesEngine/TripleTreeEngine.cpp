@@ -1,11 +1,11 @@
 #include "TripleTreeEngine.h"
 
 
-TripleTreeEngine::TripleTreeEngine():
-m_mainWindow(),
-m_gameState(Uninitialized)
+TripleTreeEngine::TripleTreeEngine() :
+	m_mainWindow(),
+	m_gameState(Uninitialized)
 {
-	
+
 }
 
 bool TripleTreeEngine::Initialize() {
@@ -20,7 +20,7 @@ bool TripleTreeEngine::Initialize() {
 	m_splashScreen.Show(m_mainWindow);
 
 	//Check system
-	if (!Initialize::CheckHardDriveSpace(300*1024*1024)) {
+	if (!Initialize::CheckHardDriveSpace(300 * 1024 * 1024)) {
 		cout << "CheckStorage failure : Not enough physical storage." << endl;
 		return false;
 	}
@@ -41,7 +41,7 @@ bool TripleTreeEngine::Initialize() {
 	}
 
 	if (!Initialize::CheckCPUSpeed(2000)) {
-		cout << "Check CPU speed failure, CPU speed too low" <<endl;
+		cout << "Check CPU speed failure, CPU speed too low" << endl;
 		return false;
 	}
 
@@ -53,7 +53,7 @@ bool TripleTreeEngine::Initialize() {
 
 	//Initialize all screens
 	m_gameScreen = new GameScreen(m_gameObjectManager, m_physicsEngine);
-
+	m_Input = new CheckInput(m_gameObjectManager);
 	//Initialize audio system
 	Initialize::InitAudioSystem();
 
@@ -69,12 +69,12 @@ void TripleTreeEngine::Start()
 		return;
 	}
 
-	while (m_gameState!=Exiting)
+	while (m_gameState != Exiting)
 	{
 		//Window event and begin game.
 		sf::Event event;
 		while (m_mainWindow.pollEvent(event))
-		{   
+		{
 			//Close
 			if (event.type == sf::Event::Closed) {
 				m_gameState = Exiting;
@@ -89,7 +89,7 @@ void TripleTreeEngine::Start()
 		}
 
 		//while playing
-		if (m_gameState == Running)
+		while (m_gameState == Running)
 		{
 			GameLogicLoop();
 		}
@@ -100,7 +100,12 @@ void TripleTreeEngine::Start()
 
 void TripleTreeEngine::GameLogicLoop() {
 	//check input
-
+	
+	m_Input->UdateInput(runtime);
+	if (m_Input->LeaveGame())
+	{
+		m_gameState = Exiting;
+	}
 	//update physics
 	m_physicsEngine->UpdatePhysics(runtime);
 
@@ -111,7 +116,7 @@ void TripleTreeEngine::GameLogicLoop() {
 
 	//Late update
 	m_gameObjectManager->LateUpdate(runtime);
-	
+
 	// render
 	Render();
 

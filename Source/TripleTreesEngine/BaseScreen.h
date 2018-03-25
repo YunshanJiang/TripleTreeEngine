@@ -4,6 +4,7 @@
 #include "GameObjectManager.h"
 #include "PhysicsEngine.h"
 #include "SFML/Window.hpp"
+#include "AudioComponent.h"
 #include "SFML/Graphics.hpp"
 
 class BaseScreen {

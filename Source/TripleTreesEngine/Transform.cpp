@@ -1,5 +1,5 @@
 #include "Transform.h"
-
+#include <iostream>
 void Transform::Awake() {
 	sf::Transform Model;
 	Model = Model.Identity;
@@ -14,6 +14,7 @@ void Transform::Start() {
 }
 
 void Transform::Update() {
+	
 	sf::Transform Model;
 	Model = Model.Identity;
 	Model = Model.translate(m_Position.x, m_Position.y);

@@ -20,10 +20,13 @@ void GameScreen::Awake() {
 	GameObject* doodle = m_gameObjectManager->CreateObject();
 	doodle->transform.m_Position.x += 300;
 	doodle->transform.m_Position.y += 100;
-
+	doodle->Tag = Player;
 	doodle->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
 	RigidbodyComponent* doodle_rb = new RigidbodyComponent(doodle,m_physicsEngine);
 	doodle->AddComponent(doodle_rb);
+	AudioComponent* TestAudio = new AudioComponent("../../Assets/D.wav");
+	TestAudio->PlaySound();
+	doodle->AddComponent(TestAudio);
 
 	//Create platform
 	GameObject* platform = m_gameObjectManager->CreateObject();
@@ -34,22 +37,24 @@ void GameScreen::Awake() {
 	platform->AddComponent(new SpriteRenderComponent("../../Assets/Platform.png"));
 	RigidbodyComponent* platform_rb = new RigidbodyComponent(platform, m_physicsEngine);
 	platform_rb->obeysGravity = false;
+	platform_rb->mass = 0;
 	platform->AddComponent(platform_rb);
 	
 
 
 
+	//Create doodle
+	GameObject* doodles = m_gameObjectManager->CreateObject();
+	doodles->transform.m_Position.x += 100;
+	doodles->transform.m_Position.y += 0;
 
-
-
-	/*
-	GameObject* child = m_gameObjectManager->CreateObject();
-	child->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
-	child->transform.m_Position.y = 100;
-	obj->AddChild(child);
-	obj->transform.m_Position.x = 300;
-	obj->transform.m_Position.y = 100;
-	*/
+	doodles->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
+	RigidbodyComponent* doodle_rbs = new RigidbodyComponent(doodles, m_physicsEngine);
+	doodles->AddComponent(doodle_rbs);
+	//doodle->AddChild(doodles);
+	
+	
+	
 
 }
 
