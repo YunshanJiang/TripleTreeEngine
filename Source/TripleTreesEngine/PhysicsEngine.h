@@ -41,9 +41,4 @@ private:
 	std::map<CollisionPair, CollisionInfo> collisions;
 	float groundedTol = 0.1f;
 };
-
-
-
-
-
 #endif // !PhysicsEngine_h

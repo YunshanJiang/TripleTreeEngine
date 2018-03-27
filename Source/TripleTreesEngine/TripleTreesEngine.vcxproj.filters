@@ -75,11 +75,17 @@
     <ClCompile Include="RigidbodyComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="KeyInput.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="AudioComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenOne.cpp">
+      <Filter>Source Files\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenTwo.cpp">
+      <Filter>Source Files\Screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,14 +125,20 @@
     <ClInclude Include="RigidbodyComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="KeyInput.hpp">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="GameTag.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="AudioComponent.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.hpp">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenOne.h">
+      <Filter>Header Files\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenTwo.h">
+      <Filter>Header Files\Screen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -35,13 +35,13 @@ public:
 public: // Members
 	Transform transform;    //local transform
 	sf::Transform worldTransform;
-	GameTag Tag = GameTag::Defalut;
+
+	GameTag Tag = GameTag::Default;
+
 protected: // Members
 	int m_UniqueID;
 
 	GameObject* m_Parent;
 	std::vector<GameObject*> m_Children;
-
-	
 };
 #endif

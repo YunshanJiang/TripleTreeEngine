@@ -53,7 +53,12 @@ bool TripleTreeEngine::Initialize() {
 
 	//Initialize all screens
 	m_gameScreen = new GameScreen(m_gameObjectManager, m_physicsEngine);
-	m_Input = new CheckInput(m_gameObjectManager);
+	m_screenOne = new ScreenOne(m_gameObjectManager, m_physicsEngine);
+	m_screenTwo = new ScreenTwo(m_gameObjectManager, m_physicsEngine);
+
+	//Initialize input system
+	m_Input = new Input(m_gameObjectManager);
+
 	//Initialize audio system
 	Initialize::InitAudioSystem();
 
@@ -80,16 +85,17 @@ void TripleTreeEngine::Start()
 				m_gameState = Exiting;
 			}
 			//leave the splash screen and enter to in game screen
-			if (event.type == sf::Event::EventType::KeyPressed
-				|| event.type == sf::Event::EventType::MouseButtonPressed) {
+			if (event.type == sf::Event::EventType::KeyPressed || event.type == sf::Event::EventType::MouseButtonPressed) {
 				//Load screen
-				LoadScreen(m_gameScreen);
-				m_gameState = Running;
+				if (m_gameState != Running) {
+					LoadScreen(m_screenOne);
+					m_gameState = Running;
+				}
 			}
 		}
 
 		//while playing
-		while (m_gameState == Running)
+		if (m_gameState == Running)
 		{
 			GameLogicLoop();
 		}
@@ -99,13 +105,25 @@ void TripleTreeEngine::Start()
 }
 
 void TripleTreeEngine::GameLogicLoop() {
-	//check input
-	
-	m_Input->UdateInput(runtime);
-	if (m_Input->LeaveGame())
-	{
-		m_gameState = Exiting;
+	//Load screen
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+		LoadScreen(m_screenOne);
 	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+	{
+		LoadScreen(m_screenTwo);
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+	{
+		LoadScreen(m_gameScreen);
+	}
+
+	//check input
+	m_Input->UpdateInput(runtime);
+
+	//Check input for loading screen
+
+
 	//update physics
 	m_physicsEngine->UpdatePhysics(runtime);
 
@@ -119,8 +137,6 @@ void TripleTreeEngine::GameLogicLoop() {
 
 	// render
 	Render();
-
-	// play audio
 }
 
 void TripleTreeEngine::Render() {
@@ -136,6 +152,14 @@ void TripleTreeEngine::Render() {
 }
 
 void TripleTreeEngine::LoadScreen(BaseScreen* screen) {
+	for (std::map<int, GameObject*>::iterator i = m_gameObjectManager->m_Objects.begin(); i != m_gameObjectManager->m_Objects.end(); ++i) {
+		for (std::vector<BaseComponent*>::iterator j = (i->second)->m_Components.begin(); j != (i->second)->m_Components.end(); ++j) {
+			if (AudioComponent* r = dynamic_cast<AudioComponent*>((*j))) {
+				r->Music.stop();
+				r->Sound.stop();
+			}
+		}
+	}
 	m_gameObjectManager->m_Objects.clear();
 	screen->Awake();
 }

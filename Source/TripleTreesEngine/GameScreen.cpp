@@ -18,11 +18,12 @@ void GameScreen::Awake() {
 
 	//Create doodle
 	GameObject* doodle = m_gameObjectManager->CreateObject();
-	doodle->transform.m_Position.x += 300;
+	doodle->transform.m_Position.x += 100;
 	doodle->transform.m_Position.y += 100;
 	doodle->Tag = Player;
 	doodle->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
 	RigidbodyComponent* doodle_rb = new RigidbodyComponent(doodle,m_physicsEngine);
+	doodle_rb->bounciness = 0.8f;
 	doodle->AddComponent(doodle_rb);
 	AudioComponent* TestAudio = new AudioComponent("../../Assets/D.wav");
 	TestAudio->PlaySound();
@@ -30,7 +31,7 @@ void GameScreen::Awake() {
 
 	//Create platform
 	GameObject* platform = m_gameObjectManager->CreateObject();
-	platform->transform.m_Position.x += 250;
+	platform->transform.m_Position.x += 50;
 	platform->transform.m_Position.y += 400;
 	platform->transform.m_Scale = sf::Vector2f(0.2f, 0.2f);
 
@@ -38,24 +39,41 @@ void GameScreen::Awake() {
 	RigidbodyComponent* platform_rb = new RigidbodyComponent(platform, m_physicsEngine);
 	platform_rb->obeysGravity = false;
 	platform_rb->mass = 0;
+	platform_rb->bounciness = 1.0f;
 	platform->AddComponent(platform_rb);
-	
 
 
+	/*
+	//Create doodle 2&3
+	GameObject* doodle2 = m_gameObjectManager->CreateObject();
+	doodle2->transform.m_Position.x += 400;
+	doodle2->transform.m_Position.y += 100;
+	doodle2->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
+	RigidbodyComponent* doodle_rb2 = new RigidbodyComponent(doodle2, m_physicsEngine);
+	doodle_rb2->bounciness = 0.5f;
+	doodle2->AddComponent(doodle_rb2);
 
-	//Create doodle
-	GameObject* doodles = m_gameObjectManager->CreateObject();
-	doodles->transform.m_Position.x += 100;
-	doodles->transform.m_Position.y += 0;
+	GameObject* doodle3 = m_gameObjectManager->CreateObject();
+	doodle3->transform.m_Position.x += 400;
+	doodle3->transform.m_Position.y += 300;
+	doodle3->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
+	RigidbodyComponent* doodle_rb3 = new RigidbodyComponent(doodle3, m_physicsEngine);
+	doodle_rb3->bounciness = 0.5f;
+	doodle3->AddComponent(doodle_rb2);
 
-	doodles->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
-	RigidbodyComponent* doodle_rbs = new RigidbodyComponent(doodles, m_physicsEngine);
-	doodles->AddComponent(doodle_rbs);
-	//doodle->AddChild(doodles);
-	
-	
-	
+	//Create platform
+	GameObject* platform2 = m_gameObjectManager->CreateObject();
+	platform2->transform.m_Position.x += 350;
+	platform2->transform.m_Position.y += 400;
+	platform2->transform.m_Scale = sf::Vector2f(0.2f, 0.2f);
 
+	platform2->AddComponent(new SpriteRenderComponent("../../Assets/Platform.png"));
+	RigidbodyComponent* platform_rb2 = new RigidbodyComponent(platform2, m_physicsEngine);
+	platform_rb2->obeysGravity = false;
+	platform_rb2->mass = 0;
+	platform_rb2->bounciness = 1.0f;
+	platform2->AddComponent(platform_rb);
+	*/
 }
 
 

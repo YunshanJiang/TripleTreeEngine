@@ -2,7 +2,6 @@
 
 AudioComponent::AudioComponent(std::string path) {
 	Music.openFromFile(path);
-	
 }
 void AudioComponent::Awake() {
 
