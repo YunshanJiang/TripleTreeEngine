@@ -23,7 +23,7 @@ void GameScreen::Awake() {
 	doodle->Tag = Player;
 	doodle->AddComponent(new SpriteRenderComponent("../../Assets/doodle.png"));
 	RigidbodyComponent* doodle_rb = new RigidbodyComponent(doodle,m_physicsEngine);
-	doodle_rb->bounciness = 0.8f;
+	doodle_rb->bounciness = 0.5f;
 	doodle->AddComponent(doodle_rb);
 	AudioComponent* TestAudio = new AudioComponent("../../Assets/D.wav");
 	TestAudio->PlaySound();

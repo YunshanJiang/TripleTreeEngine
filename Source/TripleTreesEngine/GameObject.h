@@ -14,7 +14,7 @@
 #include <iterator>
 
 
-class GameObject: public sf::Transformable {
+class GameObject {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
 

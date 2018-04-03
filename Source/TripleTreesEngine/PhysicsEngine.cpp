@@ -97,7 +97,7 @@ void PhysicsEngine::CheckCollisions()
 				}
 				else if (collisions.find(pair) != collisions.end()) {
 					//std::cout << "removed" << std::endl;
-					//collisions.erase(pair);
+					collisions.erase(pair);
 				}
 				
 			}
@@ -206,8 +206,8 @@ void PhysicsEngine::ResolveCollisions()
 		sf::Vector2f impulse = j * collisions[pair].collisionNormal;
 		
 		// ... update velocities
-		pair.rb_A->AddForce(-impulse / 0.0003f);
-		pair.rb_B->AddForce(impulse / 0.0003f);
+		pair.rb_A->AddForce(-impulse / 0.003f);
+		pair.rb_B->AddForce(impulse / 0.003f);
 
 		if (abs(collisions[pair].penetration) > 0.01f) {
 			PositionalCorrection(pair);
