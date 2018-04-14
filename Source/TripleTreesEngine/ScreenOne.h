@@ -5,8 +5,11 @@
 
 #include "BaseScreen.h"
 #include "RigidbodyComponent.h"
+#include "tinyxml2.h"
 
 #include <iostream>
+
+using namespace tinyxml2;
 
 class ScreenOne : public BaseScreen
 {

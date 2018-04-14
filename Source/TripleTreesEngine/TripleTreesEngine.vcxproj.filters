@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Component">
       <UniqueIdentifier>{ef08154f-9725-4dd6-b0db-f5398f4a7a5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\thirdparty">
+      <UniqueIdentifier>{1467f9e1-7ff9-4e1c-a135-c6ffb757395e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\thirdparty">
+      <UniqueIdentifier>{fc8201dd-f37c-43ee-a102-17005e3c5f37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -86,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="ScreenTwo.cpp">
       <Filter>Source Files\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Source Files\thirdparty</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,5 +149,11 @@
     <ClInclude Include="ScreenTwo.h">
       <Filter>Header Files\Screen</Filter>
     </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Header Files\thirdparty</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\Assets\player.xml" />
   </ItemGroup>
 </Project>

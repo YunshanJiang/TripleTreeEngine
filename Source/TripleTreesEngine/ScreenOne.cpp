@@ -16,7 +16,15 @@ void ScreenOne::Awake() {
 	bg->AddComponent(bgSpriteRenderer);
 
 
+	XMLDocument doc;
+	 doc.LoadFile("../../Assets/player.xml");
+	
+		const char* textxml = doc.FirstChildElement("player")->GetText();
 
+		std::cout << textxml << std::endl;
+	
+	
+	
 	//Create platform
 	GameObject* platform = m_gameObjectManager->CreateObject();
 	platform->Tag = Player;
