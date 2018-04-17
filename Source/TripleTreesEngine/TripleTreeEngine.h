@@ -11,6 +11,7 @@
 #include "GameTag.h"
 #include "ScreenOne.h"
 #include "ScreenTwo.h"
+#include "ScreenManager.h"
 
 class TripleTreeEngine
 {
@@ -29,6 +30,7 @@ private:
 	void GameLogicLoop();
 	void Render();
 	void LoadScreen(BaseScreen* screen);
+	void LoadScreen(const char* screenPath);
 
 
 	sf::Time runtime = sf::milliseconds(100);
@@ -38,6 +40,7 @@ private:
 	GameObjectManager* m_gameObjectManager;
 	Input* m_Input;
 
+	ScreenManager* m_screenManager;
 	SplashScreen m_splashScreen;
 	GameScreen* m_gameScreen;
 	ScreenOne* m_screenOne;

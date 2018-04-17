@@ -52,6 +52,7 @@ bool TripleTreeEngine::Initialize() {
 	m_gameObjectManager = new GameObjectManager();
 
 	//Initialize all screens
+	m_screenManager = new ScreenManager(m_gameObjectManager, m_physicsEngine);
 	m_gameScreen = new GameScreen(m_gameObjectManager, m_physicsEngine);
 	m_screenOne = new ScreenOne(m_gameObjectManager, m_physicsEngine);
 	m_screenTwo = new ScreenTwo(m_gameObjectManager, m_physicsEngine);
@@ -88,7 +89,8 @@ void TripleTreeEngine::Start()
 			if (event.type == sf::Event::EventType::KeyPressed || event.type == sf::Event::EventType::MouseButtonPressed) {
 				//Load screen
 				if (m_gameState != Running) {
-					LoadScreen(m_screenOne);
+					//LoadScreen(m_screenOne);
+					m_screenManager->Load("../../Assets/player.xml");
 					m_gameState = Running;
 				}
 			}
@@ -107,7 +109,7 @@ void TripleTreeEngine::Start()
 void TripleTreeEngine::GameLogicLoop() {
 	//Load screen
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-		LoadScreen(m_screenOne);
+		LoadScreen("../../Assets/player.xml");
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 	{
@@ -162,4 +164,17 @@ void TripleTreeEngine::LoadScreen(BaseScreen* screen) {
 	}
 	m_gameObjectManager->m_Objects.clear();
 	screen->Awake();
+}
+
+void TripleTreeEngine::LoadScreen(const char* screen) {
+	for (std::map<int, GameObject*>::iterator i = m_gameObjectManager->m_Objects.begin(); i != m_gameObjectManager->m_Objects.end(); ++i) {
+		for (std::vector<BaseComponent*>::iterator j = (i->second)->m_Components.begin(); j != (i->second)->m_Components.end(); ++j) {
+			if (AudioComponent* r = dynamic_cast<AudioComponent*>((*j))) {
+				r->Music.stop();
+				r->Sound.stop();
+			}
+		}
+	}
+	m_gameObjectManager->m_Objects.clear();
+	m_screenManager->Load(screen);
 }

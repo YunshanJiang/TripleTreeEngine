@@ -40,10 +40,10 @@
     <Filter Include="Source Files\Component">
       <UniqueIdentifier>{ef08154f-9725-4dd6-b0db-f5398f4a7a5c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\thirdparty">
+    <Filter Include="Source Files\Thirdparty">
       <UniqueIdentifier>{1467f9e1-7ff9-4e1c-a135-c6ffb757395e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\thirdparty">
+    <Filter Include="Header Files\Thirdparty">
       <UniqueIdentifier>{fc8201dd-f37c-43ee-a102-17005e3c5f37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -94,7 +94,10 @@
       <Filter>Source Files\Screen</Filter>
     </ClCompile>
     <ClCompile Include="tinyxml2.cpp">
-      <Filter>Source Files\thirdparty</Filter>
+      <Filter>Source Files\Thirdparty</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Source Files\Screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -150,7 +153,10 @@
       <Filter>Header Files\Screen</Filter>
     </ClInclude>
     <ClInclude Include="tinyxml2.h">
-      <Filter>Header Files\thirdparty</Filter>
+      <Filter>Header Files\Thirdparty</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Header Files\Screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

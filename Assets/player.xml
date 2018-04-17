@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<player>hello</player>
+<GameObject>
+    <Transform>
+        <Position x="0" y="0"></Position>
+        <Rotation z="0"></Rotation>
+        <Scale x="1" y="1"></Scale>
+    </Transform>
+    <Render src="../../Assets/Background_2.png">
+        <Sprite xScale="1" yScale="1"></Sprite>
+    </Render>
+</GameObject>
+
+<GameObject>
+    <Transform>
+        <Position x="250" y="200"></Position>
+        <Rotation x="0"></Rotation>
+        <Scale x="5" y="5"></Scale>
+    </Transform>
+    <Render src="../../Assets/doodle.png"></Render>
+</GameObject>
