@@ -178,3 +178,4 @@ void TripleTreeEngine::LoadScreen(const char* screen) {
 	m_gameObjectManager->m_Objects.clear();
 	m_screenManager->Load(screen);
 }
+

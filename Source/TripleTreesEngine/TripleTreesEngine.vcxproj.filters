@@ -161,5 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\Assets\player.xml" />
+    <Xml Include="MainMenu.xml" />
   </ItemGroup>
 </Project>

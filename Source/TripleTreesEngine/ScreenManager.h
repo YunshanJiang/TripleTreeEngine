@@ -4,6 +4,8 @@
 #include "GameObjectManager.h"
 #include "tinyxml2.h"
 #include "PhysicsEngine.h"
+#include "RigidbodyComponent.h"
+#include "AudioComponent.h"
 
 using namespace tinyxml2;
 
@@ -19,7 +21,8 @@ private:
 
 	const std::string TRANSFORM_COMPONENT = "Transform";
 	const std::string RENDER_COMPONENT = "Render";
-
+	const std::string RIGIDBODY_COMPONENT = "Rigidbody";
+	const std::string AUDIO_COMPONENT = "Audio";
 
 	void CreateComponent(GameObject* gameObject, XMLElement* node);
 };

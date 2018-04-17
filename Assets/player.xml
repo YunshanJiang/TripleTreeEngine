@@ -9,13 +9,21 @@
     <Render src="../../Assets/Background_2.png">
         <Sprite xScale="1" yScale="1"></Sprite>
     </Render>
+    <Audio src ="../../Assets/D.wav"></Audio>
 </GameObject>
 
 <GameObject>
     <Transform>
-        <Position x="250" y="200"></Position>
-        <Rotation x="0"></Rotation>
-        <Scale x="5" y="5"></Scale>
+        <Position x="0" y="200"></Position>
+        <Rotation z="0"></Rotation>
+        <Scale x="1" y="1"></Scale>
     </Transform>
     <Render src="../../Assets/doodle.png"></Render>
+    <Rigidbody>
+      <gravity x ="0" y ="-9.8"></gravity>
+      <mass m ="1.0"></mass>
+      <bounciness b ="0.2"></bounciness>
+      <obeysGravity>true</obeysGravity>
+      
+    </Rigidbody>
 </GameObject>
