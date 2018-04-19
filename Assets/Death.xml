@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<GameObject>
+  <Transform>
+    <Position x="0" y="0"></Position>
+    <Rotation z="0"></Rotation>
+    <Scale x="1" y="1"></Scale>
+  </Transform>
+  <Render src="../../Assets/background4.jpg">
+    <Sprite xScale="0.729" yScale="0.781"></Sprite>
+  </Render>
+  <Audio src ="../../Assets/D.wav"></Audio>
+  <GameTag t ="Default"></GameTag>
+</GameObject>
+
+
+<GameObject>
+  <Transform>
+    <Position x="250" y="200"></Position>
+    <Rotation z="0"></Rotation>
+    <Scale x="1" y="1"></Scale>
+  </Transform>
+  <Render src="../../Assets/RestartChoose.png">
+    <Sprite xScale="1" yScale="1"></Sprite>
+  </Render>
+  
+  <GameTag t ="RestartButton"></GameTag>
+</GameObject>
+
+
+
+<GameObject>
+  <Transform>
+    <Position x="250" y="275"></Position>
+    <Rotation z="0"></Rotation>
+    <Scale x="1" y="1"></Scale>
+  </Transform>
+  <Render src="../../Assets/MainMenu.png">
+    <Sprite xScale="1" yScale="1"></Sprite>
+  </Render>
+
+  <GameTag t ="MainMenuButton"></GameTag>
+</GameObject>
+
+
+
+<GameObject>
+  <Transform>
+    <Position x="250" y="350"></Position>
+    <Rotation z="0"></Rotation>
+    <Scale x="1" y="1"></Scale>
+  </Transform>
+  <Render src="../../Assets/Exit.png">
+    <Sprite xScale="1" yScale="1"></Sprite>
+  </Render>
+  <GameTag t ="ExitButton"></GameTag>
+</GameObject>
+
+
+<GameObject>
+  <text src ="../../Assets/Beyond Wonderland.ttf">
+    <Position x="185" y="0"></Position>
+    <Scale x="1" y="1"></Scale>
+    <size ss ="70"></size>
+    <string s ="time"></string>
+  </text>
+  <GameTag t ="LifeText"></GameTag>
+</GameObject>
+
+
+
+
+<GameObject>
+  <text src ="../../Assets/Beyond Wonderland.ttf">
+    <Position x="200" y="100"></Position>
+    <Scale x="1" y="1"></Scale>
+    <size ss ="60"></size>
+    <string s ="time"></string>
+  </text>
+  <GameTag t ="TimerText"></GameTag>
+</GameObject>
+

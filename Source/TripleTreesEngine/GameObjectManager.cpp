@@ -17,8 +17,22 @@ void GameObjectManager::Start() {
 
 void GameObjectManager::Update(sf::Time time) {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
-		(i->second)->Update(time);
+		//(i->second)->Update(time);
+		
 	}
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end();)
+	{
+		(i->second)->Update(time);
+		if (i->second->isdead)
+		{
+			i = m_Objects.erase(i);
+		}
+		else
+		{
+			i++;
+		}
+	}
+	
 }
 
 void GameObjectManager::LateUpdate(sf::Time time) {

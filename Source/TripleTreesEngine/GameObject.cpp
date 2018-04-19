@@ -14,6 +14,10 @@ void GameObject::Start() {
 }
 
 void GameObject::Update(sf::Time time) {
+	if (health <= 0)
+	{
+		isdead = true;
+	}
 	transform.Update();
 	if (m_Parent) {
 		
@@ -49,3 +53,32 @@ void GameObject::AddChild(GameObject* child) {
 	child->m_Parent = this;
 }
 
+
+SpriteRenderComponent* GameObject::GetRenderCompponent() {
+	
+		for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+			if (SpriteRenderComponent* r = dynamic_cast<SpriteRenderComponent*>((*i))) {
+				return r;
+			}
+		}
+	return 0;
+}
+
+RigidbodyComponent* GameObject::GetRigidbodyComponent() {
+	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		if (RigidbodyComponent* r = dynamic_cast<RigidbodyComponent*>((*i))) {
+			return r;
+		}
+	}
+	return 0;
+ }
+
+
+TextRenderComponent* GameObject::GetTextRenderComponent() {
+	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		if (TextRenderComponent* r = dynamic_cast<TextRenderComponent*>((*i))) {
+			return r;
+		}
+	}
+	return 0;
+}

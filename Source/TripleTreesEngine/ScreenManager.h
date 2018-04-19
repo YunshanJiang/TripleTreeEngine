@@ -23,7 +23,8 @@ private:
 	const std::string RENDER_COMPONENT = "Render";
 	const std::string RIGIDBODY_COMPONENT = "Rigidbody";
 	const std::string AUDIO_COMPONENT = "Audio";
-
+	const std::string Tag = "GameTag";
+	const std::string TEXTRENDER_COMPONENT = "text";
 	void CreateComponent(GameObject* gameObject, XMLElement* node);
 };
 

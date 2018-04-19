@@ -89,5 +89,79 @@ void ScreenManager::CreateComponent(GameObject* gameObject, XMLElement* node) {
 		AudioComponent* audio = new AudioComponent(node->Attribute("src"));
 		gameObject->AddComponent(audio);
 		audio->PlaySound();
+		audio->Music.setLoop(true);
+	}
+	else if (node->Name() == TEXTRENDER_COMPONENT) {
+		TextRenderComponent* thetext = new TextRenderComponent(node->Attribute("src"));
+		gameObject->AddComponent(thetext);
+		thetext->text.setFillColor(sf::Color::Red);
+		if (node->FirstChildElement("size") != NULL) {
+			thetext->text.setCharacterSize(atof(node->FirstChildElement("size")->Attribute("ss")));
+			
+		}
+		if (node->FirstChildElement("string") != NULL) {
+			thetext->text.setString(node->FirstChildElement("string")->Attribute("s"));
+		}
+		if (node->FirstChildElement("Position") != NULL) {
+			thetext->text.setPosition(atof(node->FirstChildElement("Position")->Attribute("x")),
+				atof(node->FirstChildElement("Position")->Attribute("y")));
+		}
+		if (node->FirstChildElement("Scale") != NULL) {
+			thetext->text.setScale(atof(node->FirstChildElement("Scale")->Attribute("x")),
+				atof(node->FirstChildElement("Scale")->Attribute("y")));
+		}
+	}
+	else if (node->Name() == Tag) {
+		
+		if (node->Attribute("t","Player"))
+		{
+			gameObject->Tag = Player;
+			gameObject->health = 3;
+		}
+		else if (node->Attribute("t", "Default"))
+		{
+			gameObject->Tag = Default;
+			gameObject->health = 3;
+		}
+		else if (node->Attribute("t", "TimerText"))
+		{
+			gameObject->Tag = TimerText;
+			gameObject->health = 3;
+		}
+		else if (node->Attribute("t", "LifeText"))
+		{
+			gameObject->Tag = LifeText;
+			gameObject->health = 3;
+
+		}
+		else if (node->Attribute("t", "Block"))
+		{
+			gameObject->Tag = Block;
+			gameObject->health = 1;
+		}
+		else if (node->Attribute("t", "StartButton"))
+		{
+			
+			gameObject->Tag = StartButton;
+			gameObject->health = 3;
+		}
+		else if (node->Attribute("t", "RestartButton"))
+		{
+
+			gameObject->Tag = RestartButton;
+			gameObject->health = 3;
+		}
+		else if (node->Attribute("t", "MainMenuButton"))
+		{
+
+			gameObject->Tag = MainMenuButton;
+			gameObject->health = 3;
+		}
+		else if (node->Attribute("t", "ExitButton"))
+		{
+			gameObject->Tag = ExitButton;
+			gameObject->health = 3;
+		}
+
 	}
 }

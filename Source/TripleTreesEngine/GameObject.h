@@ -7,6 +7,7 @@
 #include "BaseComponent.h"
 #include "Transform.h"
 #include "RenderComponent.hpp"
+#include "RigidbodyComponent.h"
 
 #include "GameTag.h"
 #include <iostream>
@@ -15,6 +16,9 @@
 #include <iterator>
 
 
+class SpriteRenderComponent;
+class RigidbodyComponent;
+class TextRenderComponent;
 class GameObject {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) { }
@@ -22,6 +26,9 @@ public:
 	int GetObjectID() const { return m_UniqueID; }
 
 	void AddComponent(BaseComponent* component);
+	SpriteRenderComponent* GetRenderCompponent();
+	RigidbodyComponent* GetRigidbodyComponent();
+	TextRenderComponent* GetTextRenderComponent();
 
 	void SetParent(GameObject& parent) { m_Parent = &parent; }
 	void AddChild(GameObject* child);
@@ -36,7 +43,8 @@ public:
 public: // Members
 	Transform transform;    //local transform
 	sf::Transform worldTransform;
-
+	bool isdead = false;
+	int health = 1;
 	GameTag Tag = GameTag::Default;
 
 protected: // Members

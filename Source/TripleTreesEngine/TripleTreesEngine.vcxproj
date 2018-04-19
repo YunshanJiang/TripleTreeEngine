@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -159,6 +159,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AudioComponent.cpp" />
+    <ClCompile Include="DeathScreen.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="ScreenOne.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -180,6 +182,8 @@
     <ClInclude Include="AudioComponent.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="BaseScreen.h" />
+    <ClInclude Include="DeathScreen.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="ScreenOne.h" />
     <ClInclude Include="GameObject.h" />
@@ -198,8 +202,13 @@
     <ClInclude Include="TripleTreeEngine.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\Assets\player.xml" />
-    <Xml Include="MainMenu.xml" />
+    <Xml Include="..\..\Assets\Death.xml" />
+    <Xml Include="..\..\Assets\MainMenu.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+    <Xml Include="..\..\Assets\player.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

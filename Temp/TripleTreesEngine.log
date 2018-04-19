@@ -1,18 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  ScreenManager.cpp
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(41): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(51): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(76): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenmanager.cpp(80): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
-  TripleTreeEngine.cpp
-  Main.cpp
-  Generating Code...
+  ScreenOne.cpp
+c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenone.cpp(16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenone.cpp(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenone.cpp(49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\yunshan\desktop\tripletreeengine\source\tripletreesengine\screenone.cpp(80): warning C4018: '<': signed/unsigned mismatch
   TripleTreesEngine.vcxproj -> C:\Users\Yunshan\Desktop\TripleTreeEngine\Source\TripleTreesEngine\..\..\Game\TripleTreesEngine_Win32_Debug\TripleTreesEngine_Win32.exe

@@ -63,7 +63,8 @@ void PhysicsEngine::CheckCollisions()
 				sf::Vector2f gap = sf::Vector2f(abs(distance.x), abs(distance.y)) - (halfSizeA + halfSizeB);
 				
 				if (gap.x < 0 && gap.y < 0) {
-					
+					rb_A->iscollide = true;
+					rb_B->iscollide = true;
 					//Collide
 					if (collisions.find(pair) != collisions.end()) {
 					

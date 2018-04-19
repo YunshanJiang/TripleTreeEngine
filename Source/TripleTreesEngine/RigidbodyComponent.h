@@ -6,7 +6,7 @@
 #include "PhysicsEngine.h"
 #include "GameObject.h"
 #include "SFML\Graphics.hpp"
-
+class GameObject;
 class RigidbodyComponent : public BaseComponent
 {
 public:
@@ -39,7 +39,7 @@ public:
 	bool grounded;
 	sf::Vector2f currentVelocity;                           // The current velocity the body is moving at
 	sf::Vector2f maxVelocity = sf::Vector2f(10.0f, 10.0f);  // The maximum allowed velocity for this object
-
+	bool iscollide = false;
 private:
 	PhysicsEngine* m_physicsEngine;
 	sf::Vector2f totalForces;

@@ -6,12 +6,16 @@
 #include "SFML/Window.hpp"
 #include "AudioComponent.h"
 #include "SFML/Graphics.hpp"
+#include "Input.hpp"
 
 class BaseScreen {
 public:
 
-	virtual void Awake() {}
+	virtual void Awake(Input* input) {}
 
+	virtual void Update(){}
+
+	Input* baseinput;
 	GameObjectManager* m_gameObjectManager;
 	PhysicsEngine* m_physicsEngine;
 };

@@ -1,7 +1,10 @@
 #ifndef BaseComponent_h
 #define BaseComponent_h
 
+
+
 #include <stdio.h>
+
 
 class BaseComponent {
 public:
@@ -9,6 +12,7 @@ public:
 	virtual void Start() {}
 	virtual void Update() {}
 	virtual void LateUpdate() {}
+	
 };
 
 #endif

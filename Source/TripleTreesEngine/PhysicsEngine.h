@@ -27,7 +27,7 @@ public:
 			return false;
 		}
 	};
-
+	std::vector<RigidbodyComponent*> RigidBodies;
 	void UpdatePhysics(sf::Time time);
 	void AddRigidBody(RigidbodyComponent* rigidBody);
 	bool IsGrounded(RigidbodyComponent* rigidBody);
@@ -37,7 +37,7 @@ public:
 	void IntegrateBodies(sf::Time time);
 	
 private:
-	std::vector<RigidbodyComponent*> RigidBodies;
+	
 	std::map<CollisionPair, CollisionInfo> collisions;
 	float groundedTol = 0.1f;
 };
