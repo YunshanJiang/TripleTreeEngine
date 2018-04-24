@@ -29,7 +29,10 @@ private:
 	GameObject* lifetext;
 	GameObject* timertext;
 	sf::Clock thecolck;
-	
+
+	void SpawnEnemy();
+	sf::Clock spawnClock;
+	int spawnTime = 0;
 
 };
 

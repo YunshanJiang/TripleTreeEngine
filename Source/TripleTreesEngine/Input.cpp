@@ -59,7 +59,14 @@ void Input::ReadTimeAction(sf::Time time, Actions action) {
 			for (std::map<int, GameObject*>::iterator i = temp_Objects.begin(); i != temp_Objects.end(); ++i) {
 				if (i->second->Tag == Player)
 				{
-					i->second->transform.m_Position.y -= time.asSeconds();
+					//i->second->transform.m_Position.y -= time.asSeconds();
+					
+					for (std::vector<BaseComponent*>::iterator j = (i->second)->m_Components.begin(); j != (i->second)->m_Components.end(); ++j) {
+						if (RigidbodyComponent* r = dynamic_cast<RigidbodyComponent*>((*j))) {
+							r->AddForce(sf::Vector2f(0, 8));
+						}
+					}
+					
 				}
 
 			}
@@ -89,7 +96,7 @@ void Input::ReadTimeAction(sf::Time time, Actions action) {
 			for (std::map<int, GameObject*>::iterator i = temp_Objects.begin(); i != temp_Objects.end(); ++i) {
 				if (i->second->Tag == Player)
 				{
-					i->second->transform.m_Position.y += time.asSeconds();
+					//i->second->transform.m_Position.y += time.asSeconds();
 				}
 			}
 		}
@@ -120,9 +127,9 @@ void Input::ReadTimeAction(sf::Time time, Actions action) {
 		if (*m_currentscreen == InGameScreen)
 		{
 			for (std::map<int, GameObject*>::iterator i = temp_Objects.begin(); i != temp_Objects.end(); ++i) {
-				if (i->second->Tag == Player)
+				if (i->second->Tag == Player && i->second->transform.m_Position.x>0)
 				{
-					i->second->transform.m_Position.x -= time.asSeconds();
+					i->second->transform.m_Position.x -= time.asSeconds() * 0.5f;
 				}
 			}
 		}
@@ -134,7 +141,7 @@ void Input::ReadTimeAction(sf::Time time, Actions action) {
 			for (std::map<int, GameObject*>::iterator i = temp_Objects.begin(); i != temp_Objects.end(); ++i) {
 				if (i->second->Tag == Player)
 				{
-					i->second->transform.m_Position.x += time.asSeconds();
+					i->second->transform.m_Position.x += time.asSeconds() * 0.5f;
 				}
 			}
 		}

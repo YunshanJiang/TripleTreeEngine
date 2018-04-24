@@ -55,7 +55,6 @@ void PhysicsEngine::CheckCollisions()
 				pair.rb_B = rb_B;
 
 				//sf::Vector2f distance = rb_B->m_gameObject->transform.m_Position - rb_A->m_gameObject->transform.m_Position;
-
 				sf::Vector2f halfSizeA = (rb_A->aabb.bRight - rb_A->aabb.tLeft) * 0.5f;
 				sf::Vector2f halfSizeB = (rb_B->aabb.bRight - rb_B->aabb.tLeft) * 0.5f;
 
@@ -65,6 +64,7 @@ void PhysicsEngine::CheckCollisions()
 				if (gap.x < 0 && gap.y < 0) {
 					rb_A->iscollide = true;
 					rb_B->iscollide = true;
+
 					//Collide
 					if (collisions.find(pair) != collisions.end()) {
 					

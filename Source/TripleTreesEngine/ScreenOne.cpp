@@ -13,6 +13,7 @@ void ScreenOne::Awake(Input* input) {
 	block.clear();
 	background.clear();
 	thecolck.restart();
+	spawnClock.restart();
 	srand(time(0));
 	for (std::map<int, GameObject*>::iterator i = m_gameObjectManager->m_Objects.begin(); i != m_gameObjectManager->m_Objects.end(); ++i) {
 		//std::cout << i->second->Tag << std::endl;
@@ -64,16 +65,14 @@ void ScreenOne::Update(sf::Time  time) {
 		for (std::vector<GameObject*>::iterator j = block.begin(); j != block.end(); ++j) {
 			GameObject* temp = *j;
 			temp->transform.m_Position.x -= 0.5f*time.asSeconds();
-			if (temp->transform.m_Position.x < -100 || temp->transform.m_Position.y < 100
-				|| temp->transform.m_Position.y > 500)
+			if (temp->transform.m_Position.x < -100 || temp->transform.m_Position.y < 0
+				|| temp->transform.m_Position.y > 410)
 			{
 				temp->health--;
 			}
 			if (temp->GetRigidbodyComponent()->iscollide)
 			{
-				
 				temp->health--;
-
 			}
 		}
 		//if the player collide wit hthe rock destroy it
@@ -85,16 +84,76 @@ void ScreenOne::Update(sf::Time  time) {
 				{
 					player->health--;
 				}
-				block.erase(std::remove(block.begin(), block.end(), block[i]), block.end());
 
+
+				for (std::vector<BaseComponent*>::iterator j = block[i]->m_Components.begin(); j != block[i]->m_Components.end(); ++j) {
+					if (RigidbodyComponent* r = dynamic_cast<RigidbodyComponent*>((*j))) {
+						
+						m_physicsEngine->RigidBodies.erase(std::remove(m_physicsEngine->RigidBodies.begin(), m_physicsEngine->RigidBodies.end(), r), m_physicsEngine->RigidBodies.end());
+
+					}
+				}
+				block.erase(std::remove(block.begin(), block.end(), block[i]), block.end());
 			}
 		}
+
+		if (player->transform.m_Position.y < -50 || player->transform.m_Position.y>500) {
+			player->health = 0;
+		}
+
 		//if player dead go to death screen
 		if (player->health <= 0 && loadedscreen == false)
 		{
 			
 			loadedscreen = true;
 		}
+
+
+		//Game manager
+		if (spawnClock.getElapsedTime().asSeconds() > spawnTime) {
+			SpawnEnemy();
+			spawnTime = rand() % (3) + 1;
+			spawnClock.restart();
+		}
+
 	}
-	
+}
+
+void ScreenOne::SpawnEnemy() {
+	GameObject* enemy = m_gameObjectManager->CreateObject();
+	enemy->transform.m_Position.x = 800;
+	enemy->transform.m_Position.y = rand() % (400);
+	enemy->Tag = Player;
+
+	int id = rand() % 4;
+
+	switch (id)
+	{
+	case 0:
+		enemy->transform.m_Scale = sf::Vector2f(0.3f, 0.3f);
+		enemy->AddComponent(new SpriteRenderComponent("../../Assets/enemy1.png"));
+		break;
+	case 1:
+		enemy->transform.m_Scale = sf::Vector2f(0.1f, 0.1f);
+		enemy->AddComponent(new SpriteRenderComponent("../../Assets/enemy2.png"));
+		break;
+	case 2:
+		enemy->transform.m_Scale = sf::Vector2f(0.1f, 0.1f);
+		enemy->AddComponent(new SpriteRenderComponent("../../Assets/enemy3.png"));
+		break;
+	case 3:
+		enemy->transform.m_Scale = sf::Vector2f(0.03f, 0.03f);
+		enemy->AddComponent(new SpriteRenderComponent("../../Assets/enemy4.png"));
+		break;
+	}
+
+
+	RigidbodyComponent* enemy_rb = new RigidbodyComponent(enemy, m_physicsEngine);
+	enemy_rb->bounciness = 0.2f;
+	enemy_rb->obeysGravity = false;
+	enemy->AddComponent(enemy_rb);
+
+	enemy->Tag = Block;
+	enemy->health = 1;
+	block.push_back(enemy);
 }

@@ -32,73 +32,19 @@
     <Transform>
         <Position x="0" y="200"></Position>
         <Rotation z="0"></Rotation>
-        <Scale x="1" y="1"></Scale>
+        <Scale x="0.5" y="0.5"></Scale>
     </Transform>
-    <Render src="../../Assets/doodle.png"></Render>
+    <Render src="../../Assets/player.png"></Render>
     <Rigidbody>
-      <gravity x ="0" y ="-9.8"></gravity>
+      <gravity x ="0" y ="-3.0"></gravity>
       <mass m ="1.0"></mass>
       <bounciness b ="0.2"></bounciness>
-      <obeysGravity>false</obeysGravity>
+      <obeysGravity>true</obeysGravity>
       
     </Rigidbody>
   <GameTag t ="Player"></GameTag>
 </GameObject>
-<!--block-->
-<GameObject>
-  <Transform>
-    <Position x="800" y="100"></Position>
-    <Rotation z="0"></Rotation>
-    <Scale x="1" y="1"></Scale>
-  </Transform>
-  <Render src="../../Assets/doodle.png"></Render>
-  <Rigidbody>
-    <gravity x ="0" y ="-9.8"></gravity>
-    <mass m ="1.0"></mass>
-    <bounciness b ="0.2"></bounciness>
-    <obeysGravity>false</obeysGravity>
 
-  </Rigidbody>
-  <GameTag t ="Block"></GameTag>
-</GameObject>
-
-
-<!--block-->
-<GameObject>
-  <Transform>
-    <Position x="800" y="200"></Position>
-    <Rotation z="0"></Rotation>
-    <Scale x="1" y="1"></Scale>
-  </Transform>
-  <Render src="../../Assets/doodle.png"></Render>
-  <Rigidbody>
-    <gravity x ="0" y ="-9.8"></gravity>
-    <mass m ="1.0"></mass>
-    <bounciness b ="0.2"></bounciness>
-    <obeysGravity>false</obeysGravity>
-
-  </Rigidbody>
-  <GameTag t ="Block"></GameTag>
-</GameObject>
-
-
-<!--block-->
-<GameObject>
-  <Transform>
-    <Position x="500" y="300"></Position>
-    <Rotation z="0"></Rotation>
-    <Scale x="1" y="1"></Scale>
-  </Transform>
-  <Render src="../../Assets/doodle.png"></Render>
-  <Rigidbody>
-    <gravity x ="0" y ="-9.8"></gravity>
-    <mass m ="1.0"></mass>
-    <bounciness b ="0.2"></bounciness>
-    <obeysGravity>false</obeysGravity>
-
-  </Rigidbody>
-  <GameTag t ="Block"></GameTag>
-</GameObject>
 
 <GameObject>
 <text src ="../../Assets/RunyTunesRevisitedNF.otf">
